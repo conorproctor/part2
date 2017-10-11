@@ -48,24 +48,23 @@ public class Main
     	
     	ArrayList<Course> courseList = new ArrayList<>();
     	courseList.add(new Course("IT", moduleList, new DateTime(), new DateTime()) );
-    	//placed the course into an array to show multiple courses could work
-    	HashMap<String, String> map = new HashMap<>();
+
+        HashMap<String, String> map = new HashMap<>();
     	
     	for( Course course : courseList ){
 	    	for( Module module : course.getModuleList() ){
-	    		for( Student student : module.getStudentList() ){
-	    			String studentName = student.getName();
-	    			if( !map.containsKey( studentName ) ){
-	    				map.put( studentName, module.getName() );
+	    		for( Student s : module.getStudentList() ){
+	    			String nameOfStudent = s.getName();
+	    			if( !map.containsKey( nameOfStudent ) ){
+	    				map.put( nameOfStudent, module.getName() );
 	    			}
 	    			else{
-	    				map.put( studentName , map.get( studentName ) + ", " + module.getName() );
+	    				map.put( nameOfStudent , map.get( nameOfStudent ) + ", " + module.getName() );
 	    			}
 	    		}
 	    	}
 	    	for( Entry<String, String> entry : map.entrySet() ){
-	    		System.out.println("Student: " + entry.getKey() 
-                                + "\nCourse: " + course.getName()  + "\nModules: " + entry.getValue() + "\n" );
+	    		System.out.println("Student: " + entry.getKey() + "\t\tCourse: " + course.getName()  + "\t\tModules: " + entry.getValue() + "\n" );
 	    	}
     	}
     }
