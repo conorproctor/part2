@@ -1,0 +1,12 @@
+## YAML Template.
+---
+language: java
+jdk:
+- openjdk7
+after_success:
+- mvn clean
+- mvn test
+notifications:
+email:
+recipients:
+- conorproctor@hotmail.com
